@@ -23,7 +23,7 @@ def startswith(text: Union[list[str], str], case_sensitive: bool = False, split_
             You can customize the split_value now.
     """
     
-    async def func(flt, _, update: Message | CallbackQuery) -> bool:
+    async def func(flt, _, update: Union[Message, CallbackQuery]) -> bool:
         if isinstance(update, Message):
             data = update.text or update.caption
         elif isinstance(update, CallbackQuery):
@@ -72,7 +72,7 @@ def endswith(text: Union[list[str], str], case_sensitive: bool = False, split_va
             You can customize the split_value now.
     """
     
-    async def func(flt, _, update: Message | CallbackQuery) -> bool:
+    async def func(flt, _, update: Union[Message, CallbackQuery]) -> bool:
         if isinstance(update, Message):
             data = update.text or update.caption
         elif isinstance(update, CallbackQuery):
@@ -122,7 +122,7 @@ def equals(text: Union[list[str], str], prefixes: Union[list[str], str] = '', ca
             Examples: when True, text="Hello" would trigger Hello but not hello.
     """
     
-    async def func(flt, _, update: Message | CallbackQuery) -> bool:
+    async def func(flt, _, update: Union[Message, CallbackQuery]) -> bool:
         if isinstance(update, Message):
             data = update.text or update.caption
         elif isinstance(update, CallbackQuery):
